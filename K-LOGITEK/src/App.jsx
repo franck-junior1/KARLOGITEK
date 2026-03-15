@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-
+import logo from "./assets/logo23.png";
 const WA_NUMBER = "237679680586";
 const WA_BASE = `https://wa.me/${WA_NUMBER}`;
 const waLink = (msg) => `${WA_BASE}?text=${encodeURIComponent(msg)}`;
@@ -358,7 +358,7 @@ export default function App() {
         borderBottom: scrolled ? "1px solid rgba(0,0,0,0.07)" : "none"
       }}>
         {/* Logo */}
-        <div onClick={() => go("accueil")} style={{ display:"flex", alignItems:"center", gap:11, cursor:"pointer" }}>
+        {/* <div onClick={() => go("accueil")} style={{ display:"flex", alignItems:"center", gap:11, cursor:"pointer" }}>
           <div style={{
             width:38, height:38, borderRadius:10,
             background:"linear-gradient(135deg,#0f0f0f,#333)",
@@ -368,7 +368,21 @@ export default function App() {
           <span style={{
             fontFamily:"'Cormorant Garamond',serif", fontSize:20, fontWeight:700, color:"#0f0f0f", letterSpacing:.5
           }}>KARLO<em style={{ fontStyle:"normal", color:"#c9aa71" }}>GITEK</em></span>
-        </div>
+        </div> */}
+
+
+        <div onClick={() => go("accueil")} style={{ cursor:"pointer" }}>
+  <img
+    src={logo}
+    alt="KARLOGITEK"
+    style={{
+      height: 120,
+      width: "auto",
+      objectFit: "contain",
+      display: "block",
+    }}
+  />
+</div>
 
         {/* Links desktop */}
         <ul className="nav-links-desktop" style={{ display:"flex", gap:4, listStyle:"none" }}>
