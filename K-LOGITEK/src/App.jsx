@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import karlogiLogo from "./assets/karlogilogo.png";
 
 /* ─────────────────────────── FONTS & GLOBAL CSS ─────────────────────────── */
 if (typeof document !== "undefined") {
@@ -119,7 +120,7 @@ const HERO_CATS = [
   { id: "entree", label: "Entrée de Gamme", emoji: "💡", desc: "Infinix, Itel & accessibles", img: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=800&q=80" },
   { id: "custom", label: "Sur Commande", emoji: "🔍", desc: "N'importe quel modèle en 48h", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" },
   { id: "services", label: "Services Tech", emoji: "🛠️", desc: "Réparation, maintenance & conseil", img: "https://images.unsplash.com/photo-1581092162384-8987c1d64926?w=800&q=80" },
-  { id: "packs", label: "Nos Packs", emoji: "🎁", desc: "Abonnements & offres groupées", img: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=800&q=80" },
+  { id: "packs", label: "Nos offres", emoji: "🎁", desc: "Abonnements & offres groupées", img: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=800&q=80" },
 ];
 
 const PAGES = [
@@ -226,7 +227,7 @@ function WaFab() {
   return (
     <a href={waLink("Bonjour KARLOGITEK 👋")} target="_blank" rel="noreferrer" className="wa-fab">
       <div className="wa-icon"><svg viewBox="0 0 24 24" fill="#fff" width={26} height={26}><path d={WA_D} /></svg></div>
-      <span className="wa-label">Commander via WhatsApp</span>
+      <span className="wa-label">Commander</span>
     </a>
   );
 }
@@ -310,7 +311,7 @@ function ProductModal({ item, img, onClose }) {
           <div style={{ display: "flex", gap: 10, marginTop: "auto", paddingTop: 6 }}>
             <a href={waLink(`Bonjour KARLOGITEK 👋, je souhaite commander le ${item.brand} ${item.name}. Quelles sont les disponibilités et le prix ?`)} target="_blank" rel="noreferrer" onClick={onClose}
               style={{ flex: 1, padding: "13px 0", borderRadius: 12, border: "none", cursor: "pointer", background: `linear-gradient(135deg, ${T.skyD}, ${T.sky})`, color: "#fff", fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: 1, textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, boxShadow: `0 4px 16px ${T.sky}30` }}>
-              <WaSvg size={16} />Commander via WhatsApp
+              <WaSvg size={16} />Commander
             </a>
             <button onClick={onClose} style={{ padding: "12px 14px", borderRadius: 12, cursor: "pointer", background: "transparent", border: `1.5px solid ${T.border}`, color: T.textMut, fontSize: 14 }}>✕</button>
           </div>
@@ -421,15 +422,25 @@ function Navbar({ current, setCurrent }) {
         transition: "all .35s", padding: "0 5%",
         display: "flex", alignItems: "center", justifyContent: "space-between", height: 68,
       }}>
-        <div onClick={() => go("accueil")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
+        {/* <div onClick={() => go("accueil")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `linear-gradient(135deg, ${T.skyD}, ${T.sky})`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 4px 12px ${T.sky}40` }}>
             <span style={{ fontFamily: "'Fraunces',serif", fontWeight: 700, fontSize: 18, color: "#fff" }}>K</span>
           </div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 1 }}>
-            <LogoSpan fontSize={22}>KARLO</LogoSpan>
-            <span style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 22, fontWeight: 800, color: T.text, letterSpacing: -0.5 }}>GITEK</span>
-          </div>
-        </div>
+          
+           <img
+  src="./assets/karlogilogo.png"
+  alt=""
+  style={{ height: 300, width: "auto", objectFit: "contain" }}
+/>
+        </div> */}
+
+        <div onClick={() => go("accueil")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
+  <img
+    src={karlogiLogo}
+    alt="Karlogitek logo"
+    style={{ height: 250, width: "auto", objectFit: "contain",marginTop: 24 }}
+  />
+</div>
 
         <div className="nav-links">
           {PAGES.filter(p => ["accueil", "premium", "milieu", "services", "packs", "contact"].includes(p.id)).map(p => (
@@ -490,8 +501,8 @@ function HomePage({ setCurrent }) {
           </div>
 
           <div style={{ marginBottom: 6, animation: "fadeUp .6s .1s both" }}>
-            <LogoSpan fontSize="clamp(64px,14vw,130px)" style={{ letterSpacing: -2, lineHeight: .9 }}>KARLO</LogoSpan>
-            <span style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "clamp(64px,14vw,130px)", fontWeight: 900, color: T.text, letterSpacing: -2, lineHeight: .9 }}>GITEK</span>
+            <LogoSpan fontSize="clamp(64px,14vw,130px)" style={{ letterSpacing: -2, lineHeight: .9 }}>KARLOGI</LogoSpan>
+            <span style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "clamp(64px,14vw,130px)", fontWeight: 900, color: T.text, letterSpacing: -2, lineHeight: .9 }}>TEK</span>
           </div>
 
           <p style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: 5, textTransform: "uppercase", color: T.textMut, marginBottom: 8, animation: "fadeUp .6s .15s both" }}>VOTRE EXPERT DIGITAL</p>
@@ -515,7 +526,7 @@ function HomePage({ setCurrent }) {
               style={{ padding: "14px 34px", borderRadius: 50, cursor: "pointer", background: "transparent", border: `2px solid ${T.border}`, color: T.textMut, fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 500, fontSize: 13, transition: "all .2s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = T.sky; e.currentTarget.style.color = T.sky; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.textMut; }}>
-              ⭐ Nos Packs
+              📱 Nos offres
             </button>
           </div>
         </div>
@@ -566,7 +577,7 @@ function HomePage({ setCurrent }) {
       {/* PACKS */}
       <div className="section-pad" style={{ background: T.bg2, borderTop: `1px solid ${T.border}` }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <SectionHeader sub="OFFRES SPÉCIALES" title="Nos packs & abonnements" />
+          <SectionHeader sub="OFFRES SPÉCIALES" title="Nos offres & abonnements" />
           <div className="packs-grid">
             {PACKS.map((pk, i) => (
               <div key={pk.id} onClick={() => setCurrent("packs")}
@@ -592,7 +603,7 @@ function HomePage({ setCurrent }) {
               style={{ padding: "12px 32px", borderRadius: 50, border: `1.5px solid ${T.border2}`, background: "transparent", color: T.textSub, cursor: "pointer", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 12, letterSpacing: 1, fontWeight: 600, transition: "all .2s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = T.sky; e.currentTarget.style.color = T.sky; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = T.border2; e.currentTarget.style.color = T.textSub; }}>
-              Voir tous nos packs →
+              Voir tous nos offres →
             </button>
           </div>
         </div>
@@ -774,8 +785,21 @@ function PacksPage({ setCurrent }) {
         <div style={{ textAlign: "center", marginBottom: 54 }}>
           <div style={{ width: 44, height: 3, background: `linear-gradient(90deg, ${T.skyD}, ${T.sky})`, margin: "0 auto 16px", borderRadius: 2 }} />
           <p style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 10, letterSpacing: 5, textTransform: "uppercase", color: T.sky, marginBottom: 10, fontWeight: 700 }}>ABONNEMENTS & OFFRES</p>
-          <h1 style={{ fontFamily: "'Fraunces',serif", fontSize: "clamp(34px,7vw,64px)", fontWeight: 600, background: `linear-gradient(135deg, ${T.skyD}, ${T.sky})`, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent", display: "block" }}>⭐ Packs & Services</h1>
-          <p style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: T.textSub, maxWidth: 500, margin: "14px auto 0", lineHeight: 1.75 }}>Des formules adaptées à chaque besoin, pour particuliers et entreprises.</p>
+<h1 style={{
+  fontFamily: "'Fraunces',serif",
+  fontSize: "clamp(34px,7vw,64px)",
+  fontWeight: 600,
+  background: `linear-gradient(135deg, ${T.skyD}, ${T.sky})`,
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  color: "transparent",
+  display: "block",
+  lineHeight: 1.2,
+  paddingBottom: "0.1em",
+}}>
+ Packs & Services
+</h1>          <p style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: T.textSub, maxWidth: 500, margin: "14px auto 0", lineHeight: 1.75 }}>Des formules adaptées à chaque besoin, pour particuliers et entreprises.</p>
         </div>
 
         {/* Featured Pack */}
@@ -1059,8 +1083,8 @@ function Footer({ setCurrent }) {
                 <span style={{ fontFamily: "'Fraunces',serif", fontWeight: 700, fontSize: 16, color: "#fff" }}>K</span>
               </div>
               <div>
-                <LogoSpan fontSize={20}>KARLO</LogoSpan>
-                <span style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: -0.5 }}>GITEK</span>
+                <LogoSpan fontSize={20}>KARLOGI</LogoSpan>
+                <span style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: -0.5 }}>TEK</span>
               </div>
             </div>
             <p style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 12, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, maxWidth: 220, marginBottom: 20 }}>Votre concierge digital de confiance à Douala. Smartphones authentiques, assistance 7j/7.</p>
