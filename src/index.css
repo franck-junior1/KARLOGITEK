@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0B0F1A; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#22C55E, #0EA5E9);
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .shimmer-text {
+    background: linear-gradient(90deg, #22C55E, #0EA5E9, #F97316, #22C55E);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+  .shimmer-text-blue {
+    background: linear-gradient(135deg, #0EA5E9, #38BDF8, #22C55E);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s linear infinite;
+  }
+  .grad-green-blue {
+    background: linear-gradient(135deg, #22C55E, #0EA5E9);
+  }
+  .grad-orange-red {
+    background: linear-gradient(135deg, #F97316, #EF4444);
+  }
+  .grad-gold-orange {
+    background: linear-gradient(135deg, #EAB308, #F97316);
+  }
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s, border-color 0.3s;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+  }
+  .wa-fab {
+    animation: waPulse 2.5s ease-in-out infinite;
+  }
+  .wa-fab:hover {
+    animation: none;
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(34,197,94,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(34,197,94,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .grid-bg-light {
+    background-image: linear-gradient(rgba(14,165,233,0.06) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(14,165,233,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
